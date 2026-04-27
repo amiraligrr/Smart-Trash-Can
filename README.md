@@ -56,3 +56,25 @@ After each command, the trash can replies back with `1` over `SoftwareSerial` to
 
 Full Arduino code is below.  
 Uses the built‑in `Servo.h` and `SoftwareSerial.h` libraries.
+ntegration with ASR
+The main smart room system (ASR.ino) sends commands to this trash can over SoftwareSerial.
+It also waits for a confirmation reply before announcing success (e.g., playing "satle zobale is on" or "taviz mode is on").
+
+The two systems share a common protocol:
+
+sz_Serial.write(1) → normal open/close
+
+sz_Serial.write(2) → cleaning mode (not used in this version)
+
+sz_Serial.write(3) → bag replacement mode
+
+This slave device replies with 1 when the action is complete.
+
+See also
+ASR – Amirali Smart Room (main system)
+
+ZP-lang-Framework
+
+amirali-dev
+
+Built by Amirali – 16 years old. My room, my code, my rules.
